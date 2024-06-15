@@ -1,0 +1,253 @@
+----------------- K = 1 -----------------
+2024-06-13 20:56:57.376557
+[i=0] Total Num: 744
+    Accurate Data Num: 2  0.002688172043010753
+[i=1] Total Num: 62
+    Accurate Data Num: 2  0.03225806451612903
+[i=2] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=3] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=4] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=5] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=6] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=7] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=8] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=9] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=10] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=11] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=12] Total Num: 62
+    Accurate Data Num: 0  0.0
+----------------- K = 2 -----------------
+2024-06-13 20:57:01.594788
+[i=0] Total Num: 682
+    Accurate Data Num: 155  0.22727272727272727
+[i=1] Total Num: 0
+[i=2] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=3] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=4] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=5] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=6] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=7] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=8] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=9] Total Num: 62
+    Accurate Data Num: 9  0.14516129032258066
+[i=10] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=11] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=12] Total Num: 62
+    Accurate Data Num: 48  0.7741935483870968
+----------------- K = 3 -----------------
+2024-06-13 20:57:05.440536
+[i=0] Total Num: 620
+    Accurate Data Num: 141  0.22741935483870968
+[i=1] Total Num: 0
+[i=2] Total Num: 0
+[i=3] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=4] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=5] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=6] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=7] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=8] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=9] Total Num: 62
+    Accurate Data Num: 9  0.14516129032258066
+[i=10] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=11] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=12] Total Num: 62
+    Accurate Data Num: 48  0.7741935483870968
+----------------- K = 4 -----------------
+2024-06-13 20:57:09.109983
+[i=0] Total Num: 558
+    Accurate Data Num: 127  0.22759856630824374
+[i=1] Total Num: 0
+[i=2] Total Num: 0
+[i=3] Total Num: 0
+[i=4] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=5] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=6] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=7] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=8] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=9] Total Num: 62
+    Accurate Data Num: 9  0.14516129032258066
+[i=10] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=11] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=12] Total Num: 62
+    Accurate Data Num: 48  0.7741935483870968
+----------------- K = 5 -----------------
+2024-06-13 20:57:12.233522
+[i=0] Total Num: 496
+    Accurate Data Num: 113  0.22782258064516128
+[i=1] Total Num: 0
+[i=2] Total Num: 0
+[i=3] Total Num: 0
+[i=4] Total Num: 0
+[i=5] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=6] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=7] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=8] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=9] Total Num: 62
+    Accurate Data Num: 9  0.14516129032258066
+[i=10] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=11] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=12] Total Num: 62
+    Accurate Data Num: 48  0.7741935483870968
+----------------- K = 6 -----------------
+2024-06-13 20:57:14.969566
+[i=0] Total Num: 434
+    Accurate Data Num: 99  0.22811059907834103
+[i=1] Total Num: 0
+[i=2] Total Num: 0
+[i=3] Total Num: 0
+[i=4] Total Num: 0
+[i=5] Total Num: 0
+[i=6] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=7] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=8] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=9] Total Num: 62
+    Accurate Data Num: 9  0.14516129032258066
+[i=10] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=11] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=12] Total Num: 62
+    Accurate Data Num: 48  0.7741935483870968
+----------------- K = 7 -----------------
+2024-06-13 20:57:17.288959
+[i=0] Total Num: 372
+    Accurate Data Num: 85  0.22849462365591397
+[i=1] Total Num: 0
+[i=2] Total Num: 0
+[i=3] Total Num: 0
+[i=4] Total Num: 0
+[i=5] Total Num: 0
+[i=6] Total Num: 0
+[i=7] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=8] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=9] Total Num: 62
+    Accurate Data Num: 9  0.14516129032258066
+[i=10] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=11] Total Num: 62
+    Accurate Data Num: 0  0.0
+[i=12] Total Num: 62
+    Accurate Data Num: 48  0.7741935483870968
+----------------- K = 8 -----------------
+2024-06-13 20:57:19.261635
+[i=0] Total Num: 310
+    Accurate Data Num: 103  0.33225806451612905
+[i=1] Total Num: 0
+[i=2] Total Num: 0
+[i=3] Total Num: 0
+[i=4] Total Num: 0
+[i=5] Total Num: 0
+[i=6] Total Num: 0
+[i=7] Total Num: 0
+[i=8] Total Num: 62
+    Accurate Data Num: 14  0.22580645161290322
+[i=9] Total Num: 62
+    Accurate Data Num: 9  0.14516129032258066
+[i=10] Total Num: 62
+    Accurate Data Num: 9  0.14516129032258066
+[i=11] Total Num: 62
+    Accurate Data Num: 9  0.14516129032258066
+[i=12] Total Num: 62
+    Accurate Data Num: 62  1.0
+----------------- K = 9 -----------------
+2024-06-13 20:57:20.830853
+[i=0] Total Num: 248
+    Accurate Data Num: 89  0.3588709677419355
+[i=1] Total Num: 0
+[i=2] Total Num: 0
+[i=3] Total Num: 0
+[i=4] Total Num: 0
+[i=5] Total Num: 0
+[i=6] Total Num: 0
+[i=7] Total Num: 0
+[i=8] Total Num: 0
+[i=9] Total Num: 62
+    Accurate Data Num: 9  0.14516129032258066
+[i=10] Total Num: 62
+    Accurate Data Num: 9  0.14516129032258066
+[i=11] Total Num: 62
+    Accurate Data Num: 9  0.14516129032258066
+[i=12] Total Num: 62
+    Accurate Data Num: 62  1.0
+----------------- K = 10 -----------------
+2024-06-13 20:57:21.713485
+[i=0] Total Num: 186
+    Accurate Data Num: 80  0.43010752688172044
+[i=1] Total Num: 0
+[i=2] Total Num: 0
+[i=3] Total Num: 0
+[i=4] Total Num: 0
+[i=5] Total Num: 0
+[i=6] Total Num: 0
+[i=7] Total Num: 0
+[i=8] Total Num: 0
+[i=9] Total Num: 0
+[i=10] Total Num: 62
+    Accurate Data Num: 9  0.14516129032258066
+[i=11] Total Num: 62
+    Accurate Data Num: 9  0.14516129032258066
+[i=12] Total Num: 62
+    Accurate Data Num: 62  1.0
+----------------- K = 11 -----------------
+2024-06-13 20:57:22.299464
+[i=0] Total Num: 124
+    Accurate Data Num: 71  0.5725806451612904
+[i=1] Total Num: 0
+[i=2] Total Num: 0
+[i=3] Total Num: 0
+[i=4] Total Num: 0
+[i=5] Total Num: 0
+[i=6] Total Num: 0
+[i=7] Total Num: 0
+[i=8] Total Num: 0
+[i=9] Total Num: 0
+[i=10] Total Num: 0
+[i=11] Total Num: 62
+    Accurate Data Num: 9  0.14516129032258066
+[i=12] Total Num: 62
+    Accurate Data Num: 62  1.0

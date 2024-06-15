@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "lock.h": "c",
+        "transam.h": "c",
+        "miscadmin.h": "c",
+        "backendid.h": "c",
+        "proc.h": "c",
+        "clog.h": "c",
+        "xact.h": "c"
+    }
+}
