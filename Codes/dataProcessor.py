@@ -513,12 +513,11 @@ def get_csv_data(log_file):
             y_data.append(temp_y)
     return X_data, y_data
 
-
 if __name__ == '__main__':
-    logid = 80
-    for term_num in [15, 25, 35]:
+    logid = 20
+    for term_num in [20]:
         # For accumulating the conflict errors or other errors still existing in concurrency
-        log_file    =   "./Dataset/Result/S2PL-" + str(term_num) + "-" + str(logid) + ".csv"
+        log_file    =   "./Dataset/Result/Transformer-" + str(term_num) + "-" + str(logid) + ".csv"
         dataset = read_csv_all_data(log_file)
 
         error_txn = []
