@@ -3253,7 +3253,7 @@ exec_bind_message(StringInfo input_message)
 	if(ssn && typeFlag)
 	{
 		// COMMIT or ROLLBACK
-		if(query_type == CMD_UTILITY)
+		if(query_type == CMD_UNKNOWN)
 		{
 		   	removeTransactionFromPool(current_vxid);
 			commitTxnInPool(index_current_txn, current_vxid);
