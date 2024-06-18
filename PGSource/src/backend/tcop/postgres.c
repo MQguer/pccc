@@ -3148,29 +3148,8 @@ exec_bind_message(StringInfo input_message)
 				orderData.iid	=	parmValue[parmNum-(num_parm_ids--)];
 
 			orderData.hashValue	=	pc3_hash_value(orderData.tableid, orderData.wid, orderData.did, orderData.cid, orderData.iid);
-
-			// if(boolPrint)
-			// {
-			// 	printf("IDs: (%d %d %d %d)\n", (int)hasWID, (int)hasDID, (int)hasCID, (int)hasIID);
-			// 	printf("Parms: ");
-			// 	for(int n=0; n<parmNum; n++)
-			// 	{
-			// 		printf("%d ", parmValue[n]);
-			// 	}
-			// 	printf("\nSQL: %s\n", where_pos);
-			// 	printf("Entry: (%d %d %d %d %d %d %d)\n", orderData.typeid, orderData.tableid, orderData.wid, orderData.did, orderData.cid, orderData.iid, orderData.hashValue);
-			// }
 		}
 	}
-
-	int random_time = rand() % 10 + 10;
-	usleep(random_time*1000);
-
-	if(boolPrint)
-	{
-		printf("\n[Pid:%d, Vxid:%d/%d] Transaction executing.\n", MyProcPid, current_vxid.backendId, current_vxid.localTransactionId);
-	}
-
 	
 	if(pc3 && typeFlag)
 	{
@@ -3183,7 +3162,7 @@ exec_bind_message(StringInfo input_message)
 			
 			for(int n=0; n<wakeSize && pidToWake[n] > 0; n++)
 			{
-				ProcSendSignal(pidToWake[n]);
+				ProcSendSignal(pidToWake[n]);		// Wake up the waiting process
 				if(boolPrint)
 				{
 					printf("[Pid:%d, Vxid:%d/%d] Waking up Process %d.\n", MyProcPid, current_vxid.backendId, current_vxid.localTransactionId, pidToWake[n]);
@@ -3241,11 +3220,6 @@ exec_bind_message(StringInfo input_message)
 					{   
 					   	bool needsWaiting = false;
 
-						if(boolPrint)
-						{
-							printf("[needsWaiting] Transaction %d/%d needs waiting!\n", current_vxid.backendId, current_vxid.localTransactionId);
-						}
-							
 					   	for (int t=0; t<resultSize; t++)
 					   	{
 						   	if(!checkWaitingStatus(result[t]))
@@ -3263,13 +3237,11 @@ exec_bind_message(StringInfo input_message)
 							printf("\n[Pid:%d, Vxid:%d/%d] Transaction sleeping.\n", MyProcPid, current_vxid.backendId, current_vxid.localTransactionId);
 						}
 						addSleepingVxid(current_vxid);
-						ProcWaitForSharedSignal(PG_WAIT_SHARE, MyProcPid, 1000);
+						ProcWaitForSharedSignal(PG_WAIT_SHARE, MyProcPid, 1000);	// Start waiting for conflicted transactions to be committed.
 						removeSleepingVxid(current_vxid);
-
 						if(boolPrint)
 						{
 							printf("[removeSleeping] Transaction %d/%d awakened!\n", current_vxid.backendId, current_vxid.localTransactionId);
-
 						}
 						FirstSnapshotSet = false;	
 					}
@@ -3318,43 +3290,6 @@ exec_bind_message(StringInfo input_message)
 				}
 			}
 		} 
-	}
-
-	if(occ && typeFlag)
-	{
-		// COMMIT or ROLLBACK
-		if(query_type == CMD_UTILITY)
-		{
-			commitTransactionForOCC(current_vxid);
-			
-			int conflict_num = findConflictedTxnForOCC(current_vxid, transactionPool->transactions[index_current_txn]);
-
-			sharedData->conflict_num += conflict_num;
-			
-			if(conflict_num > 0)
-			{
-				printf("\n [Pid:%d] Aborting current transaction! conflict_num = %d \n", MyProcPid, sharedData->conflict_num);
-				
-				// AbortTxnForSSN();
-			}
-		}
-		// SELECT, UPDATE or DELETE
-		else
-		{
-			if(index_current_txn >= 0)
-			{
-				int 	new_data_index 		= 	transactionPool->transactions[index_current_txn]->workingset.inputSize;
-
-				// if(new_data_index < searchDepth * searchWidth && new_data_index >= 0)
-				if(new_data_index >= 0)
-				{
-					transactionPool->transactions[index_current_txn]->workingset.workingset[new_data_index]	= orderData;
-					transactionPool->transactions[index_current_txn]->workingset.inputSize++;
-					if(transactionPool->transactions[index_current_txn]->workingset.outputSize != 0)
-						transactionPool->transactions[index_current_txn]->workingset.outputSize--;
-				}
-			}
-		}
 	}
 
 	/*********************************************************************************************/
