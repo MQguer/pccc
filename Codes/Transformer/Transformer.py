@@ -224,8 +224,6 @@ if __name__ == '__main__':
         type_accurate_num = list(np.zeros(txn_size))
         table_accurate_num = list(np.zeros(txn_size))
 
-        cache_keys = list(transaction_cache.keys())
-
         for m in range(split_index, len(X_data)):
             pred = model.predict(np.array(X_data[m:m+1]))  # 对测试数据进行预测
             for i in range(0, len(pred[0])):
@@ -255,12 +253,6 @@ if __name__ == '__main__':
                 else:
                     real_item = model2.wv.similar_by_vector(item_v, topn=1)[0][0]
 
-                transaction_cache[cache_keys[m]]["y"][i][0]  =    predict_type
-                transaction_cache[cache_keys[m]]["y"][i][1]  =    predict_table
-                transaction_cache[cache_keys[m]]["y"][i][4]  =    predict_customer
-                transaction_cache[cache_keys[m]]["y"][i][5]  =    predict_item
-                transaction_cache[cache_keys[m]]["y"][i]    =   tuple(transaction_cache[cache_keys[m]]["y"][i])
-
                 total_num[0] += 1
                 total_num[i+k_value] += 1
                 if real_type == predict_type:
@@ -279,7 +271,6 @@ if __name__ == '__main__':
                 if print_log:
                     print("\t" + str(i) + ": " + str((predict_type, predict_table, predict_customer, predict_item)) + "\t  " + str(np.linalg.norm(customer_v)) + "\t  " + str(np.linalg.norm(item_v)) + " \t---\t " + str(str(i) + ": " + str((real_type, real_table, real_customer, real_item))))
 
-        预测效果记录
         with open("../Output/Text/" + str(logid) + "/transformer_test_output.txt", 'a+', encoding='utf-8') as file:
             file.write("----------------- K = " + str(k_value) + " -----------------\n")
             file.write(str(datetime.now()) + "\n")

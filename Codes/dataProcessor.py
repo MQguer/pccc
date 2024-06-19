@@ -514,8 +514,8 @@ def get_csv_data(log_file):
     return X_data, y_data
 
 if __name__ == '__main__':
-    logid = 20
-    for term_num in [20]:
+    logid = 80
+    for term_num in [5,10,15,20,25,30,35,40]:
         # For accumulating the conflict errors or other errors still existing in concurrency
         log_file    =   "./Dataset/Result/Transformer-" + str(term_num) + "-" + str(logid) + ".csv"
         dataset = read_csv_all_data(log_file)
@@ -572,7 +572,6 @@ if __name__ == '__main__':
         error_num   += max((len(all_txn)-len(total_txn)), 0)
         error_num   += len(abort_txn)
 
-
         print("=================" + str(log_file) + "=================")
         print("Execution Time: " + str(execution_time))
         print("ALL Num: " + str(len(all_txn)))
@@ -582,27 +581,5 @@ if __name__ == '__main__':
 
         if(len(total_txn) > 0):
             print("Error Rate: " + str((error_num/len(total_txn))))
-
-
-    # for logid in [20, 40, 60, 80]:
-    #     filename = './Output/Text/Data_' + str(logid) + '_output.csv'
-    #     log_file = "./Dataset/DATA-LOG-" + str(logid) + ".csv"
-    #     X_data, y_data = get_csv_data(log_file) # 获取真实的输入输出值（可缓存）
-    #     write_data_to_csv(X_data, y_data, filename)
-
-        # dataset = read_csv_all_data(log_file)
-        # dataset.drop(['STATEMENT'], axis=1, inplace=True)
-        # new_LogFile = log_file.rstrip(".csv") + "_new.csv"
-        # dataset.to_csv(new_LogFile)
-        # print(dataset.head(20))
-
-        # 获取词向量的训练文件
-        # get_transaction_info(log_file)
-
-        # model_name = "./Model/Transformer/TRANSFORMER_TEST_20_2_5000.keras"
-        # model = tf.keras.models.load_model(model_name)
-
-    # setences = get_sentences(log_file)
-    # print(setences.head(30))
 
 
