@@ -143,9 +143,6 @@ def train_with_K(logFile, k_value, input_dim, output_dim, hidden_units, hidden_u
     model_type.evaluate(X_type_test, y_type_test)
     tf.keras.models.save_model(model_type, model_name3)
 
-    # 画图
-    # save_path = '../Graph/'
-
     # 从文件加载LSTM模型
     # model_customer = tf.keras.models.load_model(model_name1)
     # model_item = tf.keras.models.load_model(model_name2)
@@ -224,8 +221,6 @@ def train_with_K(logFile, k_value, input_dim, output_dim, hidden_units, hidden_u
             current_dataset.append(new_input)
             current_dataset_type.append(predict_type)
             loop += 1
-
-
 
             if print_log:
                 print("--------------- K = " + str(k_value) + " ---------------")

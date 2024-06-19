@@ -160,7 +160,7 @@ def create_model(in_dim, maxlen, embed_dim, num_heads, ff_dim, K, num_transforme
 
 if __name__ == '__main__':
     # 超参数设置
-    in_dim = 12  # 输入维度
+    in_dim = 12
     maxlen = 12
     embed_dim = 32
     num_heads = 4
