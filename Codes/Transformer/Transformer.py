@@ -226,7 +226,7 @@ if __name__ == '__main__':
 
         cache_keys = list(transaction_cache.keys())
 
-        for m in range(0, len(X_data)):
+        for m in range(split_index, len(X_data)):
             pred = model.predict(np.array(X_data[m:m+1]))  # 对测试数据进行预测
             for i in range(0, len(pred[0])):
                 predict_type = round(pred[0][i][0] * 4)
@@ -261,69 +261,36 @@ if __name__ == '__main__':
                 transaction_cache[cache_keys[m]]["y"][i][5]  =    predict_item
                 transaction_cache[cache_keys[m]]["y"][i]    =   tuple(transaction_cache[cache_keys[m]]["y"][i])
 
-        X_cache =  []
-        y_cache =  []
-        for key in transaction_cache:
-            X_cache.append(transaction_cache[key]["X"])
-            y_cache.append(transaction_cache[key]["y"])
-        output_filename    =   "../Output/Text/Transformer_Data_" + str(logid) + "_output.csv"
-        if not os.path.exists(output_filename):
-            with open(output_filename, 'w+', newline='') as csvfile:
-                writer = csv.writer(csvfile)
-                writer.writerow(['input', 'output'])  # 写入表头
-                # 遍历每组数据
-                for X_group, y_group in zip(X_cache, y_cache):
-                    # 将输入数据和输出数据转换为字符串
-                    input_str = ' '.join(map(str, X_group))
-                    output_str = ' '.join(map(str, y_group))
+                total_num[0] += 1
+                total_num[i+k_value] += 1
+                if real_type == predict_type:
+                    type_accurate_num[0] += 1
+                    type_accurate_num[i+k_value] += 1
+                if real_table == predict_table:
+                    table_accurate_num[0] += 1
+                    table_accurate_num[i+k_value] += 1
+                if real_customer == predict_customer:
+                    customer_accurate_num[0] += 1
+                    customer_accurate_num[i+k_value] += 1
+                if real_item == predict_item:
+                    item_accurate_num[0] += 1
+                    item_accurate_num[i+k_value] += 1
 
-                    # 写入CSV文件
-                    writer.writerow([input_str, output_str])
-        else:
-            with open(output_filename, 'a+', newline='') as csvfile:
-                writer = csv.writer(csvfile)
-                # 遍历每组数据
-                for X_group, y_group in zip(X_cache, y_cache):
-                    # 将输入数据和输出数据转换为字符串
-                    input_str = ' '.join(map(str, X_group))
-                    output_str = ' '.join(map(str, y_group))
+                if print_log:
+                    print("\t" + str(i) + ": " + str((predict_type, predict_table, predict_customer, predict_item)) + "\t  " + str(np.linalg.norm(customer_v)) + "\t  " + str(np.linalg.norm(item_v)) + " \t---\t " + str(str(i) + ": " + str((real_type, real_table, real_customer, real_item))))
 
-                    # 写入CSV文件
-                    writer.writerow([input_str, output_str])
-
-        print(f"CSV 文件 '{output_filename}' 已写入")
-
-                # 准确数计算
-                # total_num[0] += 1
-                # total_num[i+k_value] += 1
-                # if real_type == predict_type:
-                #     type_accurate_num[0] += 1
-                #     type_accurate_num[i+k_value] += 1
-                # if real_table == predict_table:
-                #     table_accurate_num[0] += 1
-                #     table_accurate_num[i+k_value] += 1
-                # if real_customer == predict_customer:
-                #     customer_accurate_num[0] += 1
-                #     customer_accurate_num[i+k_value] += 1
-                # if real_item == predict_item:
-                #     item_accurate_num[0] += 1
-                #     item_accurate_num[i+k_value] += 1
-                #
-                # if print_log:
-                #     print("\t" + str(i) + ": " + str((predict_type, predict_table, predict_customer, predict_item)) + "\t  " + str(np.linalg.norm(customer_v)) + "\t  " + str(np.linalg.norm(item_v)) + " \t---\t " + str(str(i) + ": " + str((real_type, real_table, real_customer, real_item))))
-
-        # 预测效果记录
-        # with open("../Output/Text/" + str(logid) + "/transformer_test_output.txt", 'a+', encoding='utf-8') as file:
-        #     file.write("----------------- K = " + str(k_value) + " -----------------\n")
-        #     file.write(str(datetime.now()) + "\n")
-        #     for i in range(0, len(total_num)):
-        #         file.write("[i=" + str(i) + "]" + " Total Num: " + str(total_num[i]) + "\n")
-        #         if total_num[i] > 0:
-        #             file.write("    Accurate Type Num: " + str(type_accurate_num[i]) + "  " + str(
-        #                 type_accurate_num[i] / total_num[i]) + "\n")
-        #             file.write("    Accurate Table Num: " + str(table_accurate_num[i]) + "  " + str(
-        #                 table_accurate_num[i] / total_num[i]) + "\n")
-        #             file.write("    Accurate Customer Num: " + str(customer_accurate_num[i]) + "  " + str(
-        #                 customer_accurate_num[i] / total_num[i]) + "\n")
-        #             file.write("    Accurate Item Num: " + str(item_accurate_num[i]) + "  " + str(
-        #                 item_accurate_num[i] / total_num[i]) + "\n")
+        预测效果记录
+        with open("../Output/Text/" + str(logid) + "/transformer_test_output.txt", 'a+', encoding='utf-8') as file:
+            file.write("----------------- K = " + str(k_value) + " -----------------\n")
+            file.write(str(datetime.now()) + "\n")
+            for i in range(0, len(total_num)):
+                file.write("[i=" + str(i) + "]" + " Total Num: " + str(total_num[i]) + "\n")
+                if total_num[i] > 0:
+                    file.write("    Accurate Type Num: " + str(type_accurate_num[i]) + "  " + str(
+                        type_accurate_num[i] / total_num[i]) + "\n")
+                    file.write("    Accurate Table Num: " + str(table_accurate_num[i]) + "  " + str(
+                        table_accurate_num[i] / total_num[i]) + "\n")
+                    file.write("    Accurate Customer Num: " + str(customer_accurate_num[i]) + "  " + str(
+                        customer_accurate_num[i] / total_num[i]) + "\n")
+                    file.write("    Accurate Item Num: " + str(item_accurate_num[i]) + "  " + str(
+                        item_accurate_num[i] / total_num[i]) + "\n")
